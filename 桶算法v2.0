@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main()
+{
+	int book[1001],i,j,t,n;
+	for (i = 0; i<=1000; i++)
+		{
+			book[i] = 0;
+		}
+	scanf("%d",&n);       //输入n表示有n个数
+	for (
