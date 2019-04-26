@@ -12,7 +12,7 @@ int main()
 	scanf("%d", &n);//输入一个数n
 	for (i = 1; i <= n; i++)
 		scanf("%s %d", a[i].name, &a[i].score);
-	//按分数从高到低进行排序
+	//按分数从高到低进行排序             //冒泡排序
 	for (i = 1; i <= n - 1; i++)
 	{
 		for (j = 1; j <= n - 1; j++)
