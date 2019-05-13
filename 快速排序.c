@@ -1,4 +1,7 @@
-//快速排序
+//快速排序：基本思想是：通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此
+//方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。
+
+
 int a[101], n;
 
 void quicksort(int left, int right)
@@ -7,19 +10,20 @@ void quicksort(int left, int right)
 	if (left > right)
 		return;
 
-	temp = a[left];
+	temp = a[left];		//temp--基准数
 	i = left;
 	j = right;
 	while (i != j)
 	{
-		//
+		//顺序很重要，要先从右向左找
 		while (a[j] >= temp && i < j)
 			j--;
+		//再从左向右找
 		while (a[i] <= temp && i<j)
 			i++;
 
-		//
-		if (i < j)
+		//交换两个数在数组中的位置
+		if (i < j)	//未相遇时
 		{
 			t = a[i];
 			a[i] = a[j];
@@ -27,11 +31,13 @@ void quicksort(int left, int right)
 
 		}
 	}
+	
+	//最终将基准数归位
 	a[left] = a[j];
 	a[i] = temp;
 
-	quicksort(left, i - 1);
-	quicksort(i + 1, right);
+	quicksort(left, i - 1);		//继续处理左边的，这是一个递归过程
+	quicksort(i + 1, right);	//继续处理右边的，这是一个递归过程
 	return;
 }
 
