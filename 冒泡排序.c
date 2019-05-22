@@ -39,3 +39,41 @@ int main()
 
 //思考：从小到大输出呢？
 //将判断条件改为  a[j]>a[j+1]   将大的往后排
+
+
+//冒泡排序函数实现：
+#define N 10
+void maopao(int a[])
+{
+	int i = 0;
+	int j = 0;
+	for (i = 0; i < N - 1; i++)
+	{
+		for (j = 0; j < N - i; j++)
+		{
+			int t;
+			if (a[j] < a[j + 1])
+			{
+				t = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = t;
+			}
+		}
+	}
+}
+
+int main()
+{
+	
+	int a[N] = {5,8,2,4,1,6,3,9,7,0};
+	
+	int i = 0;
+	maopao(a);
+	for (i = 0; i < N; i++)
+	{
+		printf("%d ", a[i]);
+	}
+	system("pause");
+	return 0;
+}
+
