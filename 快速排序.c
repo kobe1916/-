@@ -4,10 +4,11 @@
 
 int a[101], n;
 
+//先找右，右找小，左找大，相遇则交换
 void quicksort(int left, int right)
 {
 	int i, j, t, temp;
-	if (left > right)
+	if (left > right)  //注意判断条件必不可少
 		return;
 
 	temp = a[left];		//temp--基准数
