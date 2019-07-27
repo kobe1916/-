@@ -10,10 +10,16 @@ int a[101], n;
 void quicksort(int left, int right)
 {
 	int i, j, t, temp;
-	if (left > right)  //注意判断条件必不可少
+	
+	//注意判断条件必不可少
+	if (left > right)  
 		return;
 
-	temp = a[left];		//temp--基准数
+	
+	//temp--基准数
+	//通常将最左边的数做为基准数（分割数）
+	//通过对调   将小于基准数的数放在基准数左边，大于基准数的数放在基准数的右边
+	temp = a[left];		
 	i = left;
 	j = right;
 	while (i != j)
@@ -25,8 +31,8 @@ void quicksort(int left, int right)
 		while (a[i] <= temp && i<j)
 			i++;
 
-		//交换两个数在数组中的位置
-		if (i < j)	//未相遇时
+		//未相遇时 /交换两个数在数组中的位置
+		if (i < j)	
 		{
 			t = a[i];
 			a[i] = a[j];
@@ -47,12 +53,15 @@ void quicksort(int left, int right)
 int main()
 {
 	int i, j;
+	printf("请输入要排序的数的个数:>");
 	scanf("%d", &n);
 	for (i = 1; i <= n; i++)
 		scanf("%d", &a[i]);
-
+	
+	//排序   传入左右数位置
 	quicksort(1, n);
 
+	//遍历打印
 	for (i = 1; i <= n; i++)
 		printf("%d ",a[i]);
 
